@@ -13,7 +13,7 @@ productApp.post("/products", async (req,res)=>{
     await newProductDocument.save()
 
     res.status(201).json({message:"Product Added"})
-});
+})
 
 
 // READ ALL PRODUCTS
