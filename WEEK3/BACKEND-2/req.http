@@ -1,0 +1,93 @@
+###read all users
+GET http://localhost:4000/user-api/users
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbnZpQGdtYWlsLmNvbSIsImlhdCI6MTc3MzMzMzAwOCwiZXhwIjoxNzczMzMzMDI4fQ.6SKTMx1NZKRR2vDNgV7uRoY5gYEfDBJYpSM7vdtZsek
+
+### read user by id
+GET http://localhost:4000/user-api/user
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbnZpQGdtYWlsLmNvbSIsImlhdCI6MTc3MzMzMzAwOCwiZXhwIjoxNzczMzMzMDI4fQ.6SKTMx1NZKRR2vDNgV7uRoY5gYEfDBJYpSM7vdtZsek
+
+### create new user
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+    "username":"sanvi",
+    "password":"sanvi",
+    "email":"sanvi@gmail.com",
+    "age":19
+}
+
+###update a user
+PUT http://localhost:4000/user-api/users/69abbf42fc2dfd804f202b23
+Content-Type: application/json
+
+
+{
+    "username":"saan",
+    "password":"sanvi",
+    "email":"sanvi@gmail.com",
+    "age":20
+}
+
+###user login
+POST http://localhost:4000/user-api/auth
+Content-Type: application/json
+
+{
+    "email":"sanvi@gmail.com",
+    "password":"sanvi"
+}
+
+###delete a user by id
+DELETE http://localhost:4000/user-api/users/69aa91b11ddb6d27c3944f1f
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbnZpQGdtYWlsLmNvbSIsImlhdCI6MTc3MzMzMzAwOCwiZXhwIjoxNzczMzMzMDI4fQ.6SKTMx1NZKRR2vDNgV7uRoY5gYEfDBJYpSM7vdtZsek
+
+###create product
+POST http://localhost:4000/product-api/products
+Content-Type: application/json
+
+{
+    "productId":103,
+    "productName":"laptop",
+    "price":50000,
+    "brand":"samsung"
+}
+
+
+###read all products
+GET http://localhost:4000/product-api/products
+Cookie:token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9kdWN0SWQiOjEwMywiaWF0IjoxNzczMzMzNTgzLCJleHAiOjE3NzMzMzcxODN9.oW5qZe5if2mp0Gj2pFp-LIsBJiKvWZFm9HRYFDw_Pz4
+
+###read a product by productId
+GET http://localhost:4000/product-api/products/101
+Cookie:token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9kdWN0SWQiOjEwMywiaWF0IjoxNzczMzMzNTgzLCJleHAiOjE3NzMzMzcxODN9.oW5qZe5if2mp0Gj2pFp-LIsBJiKvWZFm9HRYFDw_Pz4
+
+
+###update a product by productId
+PUT http://localhost:4000/product-api/products/101
+Content-Type: application/json
+
+{
+    "productId":101,
+    "productName":"mobile",
+    "price":25000,
+    "brand":"sam"
+}
+
+###delete product by productId
+DELETE http://localhost:4000/product-api/products/101
+Cookie:token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9kdWN0SWQiOjEwMywiaWF0IjoxNzczMzMzNTgzLCJleHAiOjE3NzMzMzcxODN9.oW5qZe5if2mp0Gj2pFp-LIsBJiKvWZFm9HRYFDw_Pz4
+
+###
+POST http://localhost:4000/product-api/auth
+Content-Type: application/json
+
+{
+    "productId":"103",
+    "productName":"laptop"
+
+}
+
+
+
+
