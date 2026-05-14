@@ -1,75 +1,83 @@
-//create min-express app(seperate route)
+// Import Express framework
 import exp from 'express'
-import {ProductModel} from './ProductModel.js'
+// Import Product model
+import { ProductModel } from './ProductModel.js'
+// Create separate router object for product routes
 export const productApp = exp.Router()
-
-
 // CREATE PRODUCT
-productApp.post("/products", async (req,res)=>{
+// Route: POST /products
+// Adds a new product to database
+
+productApp.post("/products", async (req, res) => {
+    // Get product data from request body
     const newProduct = req.body
-
+    // Create new product document
     const newProductDocument = new ProductModel(newProduct)
-
+    // Save product into database
     await newProductDocument.save()
-
-    res.status(201).json({message:"Product Added"})
+    // Send success response
+    res.status(201).json({message: "Product Added"})
 })
-
-
 // READ ALL PRODUCTS
-productApp.get("/products", async (req,res)=>{
-
+// Route: GET /products
+// Fetch all products from database
+productApp.get("/products", async (req, res) => {
+    // Get all products
     const productsList = await ProductModel.find()
-    res.status(200).json({message:"All Products",payload:productsList })
+    // Send products list
+    res.status(200).json({message: "All Products",payload: productsList})
 
 })
-
-
 // READ PRODUCT BY productId
-productApp.get("/products/:productId", async (req,res)=>{
-
+// Route: GET /products/:productId
+// Fetch single product using productId
+productApp.get("/products/:productId", async (req, res) => {
+    // Extract productId from URL params
     const pid = req.params.productId
-
-    const product = await ProductModel.findOne({productId:pid})
-
-    if(!product){
-        return res.status(404).json({message:"Product Not Found"})
+    // Find product using productId
+    const product = await ProductModel.findOne({ productId: pid})
+    // If product not found
+    if (!product) {
+        return res.status(404).json({message: "Product Not Found"})
     }
-
-    res.status(200).json({message:"Product Found",payload:product})
-
+    // Send found product
+    res.status(200).json({message: "Product Found",payload: product})
 })
-
-
 // UPDATE PRODUCT
-productApp.put("/products/:productId", async (req,res)=>{
-
+// Route: PUT /products/:productId
+// Update existing product details
+productApp.put("/products/:productId", async (req, res) => {
+    // Extract productId from params
     const pid = req.params.productId
-
+    // Get updated product data
     const modifiedProduct = req.body
-
-    const updatedProduct = await ProductModel.findOneAndUpdate({productId:pid},{$set:{...modifiedProduct}},{new:true,runValidators:true})
-
-    if(!updatedProduct){
-        return res.status(404).json({message:"Product Not Found"})
+    // Update product in database
+    const updatedProduct = await ProductModel.findOneAndUpdate({ productId: pid },{ $set: { ...modifiedProduct } },
+        {
+            new: true,
+            runValidators: true
+        }
+    )
+    // If product not found
+    if (!updatedProduct) {
+        return res.status(404).json({message: "Product Not Found"})
     }
-
-    res.status(200).json({message:"Product Updated",payload:updatedProduct })
-
+    // Send updated product
+    res.status(200).json({message: "Product Updated",payload: updatedProduct})
 })
-
-
 // DELETE PRODUCT
-productApp.delete("/products/:productId", async (req,res)=>{
+// Route: DELETE /products/:productId
+// Delete product from database
 
+productApp.delete("/products/:productId", async (req, res) => {
+    // Extract productId from params
     const pid = req.params.productId
-
-    const deletedProduct = await ProductModel.findOneAndDelete({productId:pid})
-
-    if(!deletedProduct){
-        return res.status(404).json({message:"Product Not Found"})
+    // Delete product from database
+    const deletedProduct = await ProductModel.findOneAndDelete({productId: pid})
+    // If product not found
+    if (!deletedProduct) {
+      return res.status(404).json({message: "Product Not Found"})
     }
-
-    res.status(200).json({ message:"Product Deleted",payload:deletedProduct})
-
+    // Send deleted product details
+    res.status(200).json({message: "Product Deleted",payload: deletedProduct})
 })
