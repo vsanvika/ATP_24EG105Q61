@@ -1,28 +1,50 @@
-//create user schema(username,password,email,age)
-import {Schema,model} from "mongoose";
-const userSchema=new Schema({
-    //structure of user resource
-    username:{
-        type:String,
-        required:[true,"user is required"],
-        minLength:[4,"min length of username is 4 char"],
-        maxLength:[7,"username size exceed 7 char"],
+// Import Schema and model from mongoose
+import { Schema, model } from "mongoose";
+// Create User Schema
+// Schema defines structure of user document
+const userSchema = new Schema(
+    {
+        // Username Field
+        username: {
+            // Data type should be String
+            type: String,
+            // Field is mandatory
+            required: [true, "user is required"],
+            // Minimum username length
+            minLength: [4, "min length of username is 4 char"],
+            // Maximum username length
+            maxLength: [7, "username size exceed 7 char"],
+        },
+        // Password Field
+        password: {
+            // Data type should be String
+            type: String,
+            // Field is mandatory
+            required: [true, "password required"],
+        },
+        // Email Field
+        email: {
+            // Data type should be String
+            type: String,
+            // Field is mandatory
+            required: [true, "email is required"],
+            // Email should be unique
+            unique: [true, "email already existed"],
+        },
+        // Age Field
+        age: {
+            type: Number,
+        },
     },
-    password:{
-        type:String,
-        required:[true,"password required"],
+    // Schema Configuration Options
+    {
+        // Disable __v field
+        versionKey: false,
+        // Automatically add createdAt & updatedAt
+        timestamps: true,
     },
-    email:{
-        type:String,
-        required:[true,"email is required"],
-        unique:[true,"email already existed"],
-    },
-    age:{
-       type:Number,
-    },
-},{
-    versionKey:false,
-    timestamps:true,
-},)
-//generate usermodel
-export const UserModel=model("user",userSchema)
+)
+// Generate User Model
+// "user" → collection name
+// userSchema → schema structure
+export const UserModel = model("user",userSchema)
