@@ -1,29 +1,315 @@
-# Week 3: Node.js & Express REST APIs
+# 📘 WEEK 3 — Backend API Development
 
-Focus on building robust backend services using Node.js and Express, including data modeling and CRUD operations.
+This repository contains backend development practice projects and API implementations developed during **Week 3**.
 
-## Product REST API
-The main focus is a Product Management API with the following features:
+The project focuses on:
+- REST API development
+- Express.js server setup
+- MongoDB integration
+- Product management APIs
+- Backend architecture
+- HTTP request handling
 
-### Data Model
-- `productId` (required)
-- `productName` (required)
-- `price` (required, range: 10,000 - 50,000)
-- `brand` (required)
+---
 
-### Operations
-- **Create**: Add new products.
-- **Read All**: Retrieve all products.
-- **Read by ID**: Fetch specific product details.
-- **Update**: Modify product information.
-- **Delete**: Remove products from the system.
+# 📁 Project Structure
 
-## Files
-- `server.js`: Main entry point for the Express server.
-- `ProductAPI.js`: Route handlers for the product API.
-- `ProductModel.js`: Data structure/Schema definition.
-- `req.http`: HTTP request samples for testing.
+```bash
+WEEK3/
+│
+├── BACKEND-2/
+│
+├── .gitignore
+├── ProductAPI.js
+├── ProductModel.js
+├── README.md
+├── package-lock.json
+├── package.json
+├── req.http
+└── server.js
+```
 
-## Getting Started
-1. Install dependencies: `npm install`
-2. Start the server: `node server.js`
+---
+
+# 🚀 Project Overview
+
+This project demonstrates the implementation of a backend application using **Node.js**, **Express.js**, and **MongoDB**.
+
+The application provides:
+- Product API routes
+- Database integration
+- CRUD operations
+- RESTful API architecture
+
+---
+
+# 🛠️ Technologies Used
+
+| Technology | Purpose |
+|------------|---------|
+| Node.js | Runtime Environment |
+| Express.js | Backend Framework |
+| MongoDB | Database |
+| Mongoose | MongoDB ODM |
+| REST Client | API Testing |
+
+---
+
+# 📂 File Details
+
+---
+
+## 📁 BACKEND-2
+Contains:
+- Backend practice implementations
+- API logic
+- Server-side project structure
+
+---
+
+## 📄 server.js
+Main entry point of the backend application.
+
+### Responsibilities
+- Express server setup
+- Middleware configuration
+- Database connection
+- Route integration
+
+---
+
+## 📄 ProductAPI.js
+Contains API routes related to products.
+
+### Features
+- Get all products
+- Add new product
+- Update product
+- Delete product
+
+### Concepts Covered
+- Express routing
+- CRUD operations
+- Request & response handling
+
+---
+
+## 📄 ProductModel.js
+Defines MongoDB product schema using Mongoose.
+
+### Concepts Covered
+- Mongoose schema
+- Data modeling
+- Validation
+
+---
+
+## 📄 req.http
+Contains sample HTTP requests for API testing.
+
+### Used For
+- Testing endpoints
+- Sending GET/POST/PUT/DELETE requests
+
+---
+
+## 📄 package.json
+Contains:
+- Project metadata
+- Dependencies
+- Scripts
+
+---
+
+## 📄 .gitignore
+Specifies files/folders ignored by Git.
+
+---
+
+# 🔥 Features
+
+## 🛒 Product Management
+- Add products
+- View products
+- Update product details
+- Delete products
+
+---
+
+## 🌐 REST API
+Implements RESTful architecture using Express.js.
+
+### Supported Methods
+- GET
+- POST
+- PUT
+- DELETE
+
+---
+
+## 🗄️ Database Integration
+- MongoDB connection
+- Data storage
+- Schema validation
+
+---
+
+# 📡 Sample API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/products` | Get all products |
+| POST | `/products` | Add new product |
+| PUT | `/products/:id` | Update product |
+| DELETE | `/products/:id` | Delete product |
+
+---
+
+# ⚙️ Installation & Setup
+
+## 📋 Prerequisites
+
+Make sure you have installed:
+
+- Node.js
+- npm
+- MongoDB
+
+---
+
+# 1️⃣ Clone Repository
+
+```bash
+git clone <repository-url>
+```
+
+---
+
+# 2️⃣ Navigate to Project
+
+```bash
+cd WEEK3
+```
+
+---
+
+# 3️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+# 4️⃣ Configure Database
+
+Create a `.env` file:
+
+```env
+PORT=4000
+
+DB_URL=your_mongodb_connection_string
+```
+
+---
+
+# 5️⃣ Start Server
+
+```bash
+npm start
+```
+
+OR
+
+```bash
+node server.js
+```
+
+---
+
+# 🌐 Server Runs On
+
+```bash
+http://localhost:4000
+```
+
+---
+
+# 🧪 API Testing
+
+Use:
+- VS Code REST Client
+- Postman
+- Thunder Client
+
+Sample requests are available in:
+
+```bash
+req.http
+```
+
+---
+
+# 📚 Concepts Covered
+
+## Backend Development
+- Express server setup
+- Routing
+- Middleware
+- API architecture
+
+---
+
+## MongoDB & Mongoose
+- Schema creation
+- CRUD operations
+- Database connectivity
+
+---
+
+## REST APIs
+- GET requests
+- POST requests
+- PUT requests
+- DELETE requests
+
+---
+
+# 📸 Project Highlights
+
+## 🚀 Backend Features
+✔ REST API implementation  
+✔ MongoDB integration  
+✔ Product management system  
+
+---
+
+## 🛠️ Development Concepts
+✔ Express routing  
+✔ Mongoose schema design  
+✔ HTTP request handling  
+
+---
+
+# 🌟 Future Enhancements
+
+- Add authentication
+- Add JWT authorization
+- Add image uploads
+- Add pagination
+- Add search & filtering
+- Add frontend integration
+
+---
+
+# 🎯 Learning Outcomes
+
+By completing this project, you will understand:
+- Backend application structure
+- REST API development
+- MongoDB integration
+- CRUD operations
+- Express.js fundamentals
+
+---
+
