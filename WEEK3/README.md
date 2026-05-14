@@ -208,7 +208,7 @@ Create a `.env` file:
 ```env
 PORT=4000
 
-DB_URL=your_mongodb_connection_string
+DB_URL=mongodb://localhost:27017/anuragDB1
 ```
 
 ---
