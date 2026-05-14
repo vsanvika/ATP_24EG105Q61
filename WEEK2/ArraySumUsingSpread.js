@@ -1,17 +1,27 @@
-function findSum(...a){
-    sum=0
-    for(let i of a){
-        sum=sum+i
+// Function to calculate sum using for...of loop
+// Rest operator (...) collects all arguments into an array
+function findSum(...numbers) {
+    // Initialize sum variable
+    let sum = 0
+    // Loop through each number
+    for (let number of numbers) {
+        // Add current number to sum
+        sum = sum + number
     }
-    console.log(sum)
+    // Display final sum
+    console.log("Sum using for...of loop:", sum)
 }
-findSum(13,89,99,67,56)
-
-
-
-
-function findsum(...a){
-    let sum=a.reduce((acc,ele)=>acc+ele)
-    console.log(sum)
+// Function call
+findSum(13, 89, 99, 67, 56)
+// Function to calculate sum using reduce() method
+function findSumUsingReduce(...numbers) {
+    // reduce() adds all array elements
+    let sum = numbers.reduce(
+        (accumulator, element) => accumulator + element, 0)
+    // Display final sum
+    console.log("Sum using reduce method:", sum)
 }
-findsum(13,89,99,67,56)
+
+
+// Function call
+findSumUsingReduce(13, 89, 99, 67, 56)
